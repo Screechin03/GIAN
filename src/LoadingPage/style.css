@@ -1,0 +1,21 @@
+/* Add this to your styles.css or global CSS file */
+.transition-max-height {
+    transition: max-height 1s ease-in;
+    overflow: hidden;
+}
+
+.collapsed {
+    max-height: 0;
+}
+
+.expanded {
+    max-height: 500px; /* Adjust based on your content's maximum height */
+}
+
+.rotate {
+    transition: transform 0.3s ease-out;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}

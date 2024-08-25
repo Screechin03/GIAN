@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [showMessages, setShowMessages] = useState(false);
@@ -24,17 +25,20 @@ const Header = () => {
         <>
             <div className="fixed top-0 left-0 w-full bg-zinc-100 backdrop-blur-lg z-50 border-b py-6 px-4 flex justify-between items-center shadow-lg">
                 <div className="flex space-x-8 items-center rounded-2xl h-23 ">
-                <img src="/assets/gian.png" className="rounded-xl h-[2.8vw]"/>
+                    <img src="/assets/gian.png" className="rounded-xl h-[2.8vw]" alt="Logo"/>
                 </div>
                 <nav>
                     <ul className="flex space-x-6 font-semibold font-rubik">
-                        {['Home', 'contact','logout'].map((text) => (
+                        {['Home', 'Contact', 'Logout'].map((text) => (
                             <li key={text} className="relative group">
-                                <a href="" className="relative z-10 text-black group-hover:text-blue-500 inline-block after:content-[''] after:absolute after:bg-blue-500 after:h-[2px] after:w-full after:left-0 after:bottom-0 after:origin-left after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:duration-300">
+                                <Link 
+                                    to={`/${text.toLowerCase()}`}
+                                    className="relative z-10 text-black group-hover:text-blue-500 inline-block after:content-[''] after:absolute after:bg-blue-500 after:h-[2px] after:w-full after:left-0 after:bottom-0 after:origin-left after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:duration-300"
+                                >
                                     <span className="transition-all duration-300 transform group-hover:-translate-y-1 group-hover:animate-bounce-custom group-hover:text-xl">
                                         {text}
                                     </span>
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -61,13 +65,6 @@ const Header = () => {
                                 </ul>
                             </div>
                         )}
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <img className="rounded-full w-11 h-11" src="./assets/logo.png" alt="Profile" />
-                        <div>
-                            <h1 className="font-semibold text-lg">Jane Cooper</h1>
-                            <p className='text-xs font-extralight'>Admin</p>
-                        </div>
                     </div>
                 </div>
             </div>
